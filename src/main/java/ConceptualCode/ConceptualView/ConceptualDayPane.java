@@ -2,8 +2,9 @@ package ConceptualCode.ConceptualView;
 
 import javax.swing.*;
 import java.awt.*;
+import java.util.Calendar;
 
-public class ConeceptualDayPane {
+public class ConceptualDayPane {
 
     public static void main(String[] args) {
 
@@ -14,7 +15,19 @@ public class ConeceptualDayPane {
         mainPanel.setLayout(new BoxLayout(mainPanel, BoxLayout.X_AXIS));
 
         JPanel eventPanel = new JPanel();
+        eventPanel.setLayout(new BoxLayout(eventPanel, BoxLayout.Y_AXIS));
+        double number = Math.random() * 10;
+        Button button;
+        for (int i = 0; i < number; i++) {
+            button = new Button("Event " + Integer.toString(i));
+            eventPanel.add(button);
+        }
+
         JPanel datePanel = new JPanel();
+        datePanel.setPreferredSize(new Dimension(screenSize.width/4, screenSize.height/4));
+        Calendar calendar = Calendar.getInstance();
+        Label textLabel = new Label(Integer.toString(calendar.get(Calendar.DAY_OF_MONTH)) + "/" + Integer.toString(calendar.get(Calendar.MONTH) + 1), JLabel.CENTER);
+        datePanel.add(textLabel);
 
         mainPanel.add(eventPanel);
         mainPanel.add(datePanel);
