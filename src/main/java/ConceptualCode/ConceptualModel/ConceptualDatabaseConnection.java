@@ -6,7 +6,7 @@ public class ConceptualDatabaseConnection {
 
     public static void main(String[] args) {
         String url = "jdbc:mariadb://127.0.0.1/";
-        String database = "customer_orders";
+        String database = "procrastinationstation";
         String username = "root";
         String password = "mysql";
 
@@ -14,11 +14,11 @@ public class ConceptualDatabaseConnection {
         try {
             conn = DriverManager.getConnection(url + database, username, password);
             System.out.println("Got it!");
-            String statment = "SELECT * from customer";
-            PreparedStatement stmt = conn.prepareStatement(statment);
+            String statement = "SELECT * from events";
+            PreparedStatement stmt = conn.prepareStatement(statement);
             ResultSet rs=stmt.executeQuery();
             while(rs.next()){
-                System.out.println(rs.getInt(1)+" "+rs.getString(2)+" "+rs.getString(3)+" "+rs.getString(4)+" "+rs.getString(5));
+                System.out.println(rs.getInt(1)+" "+rs.getString(2)+" "+rs.getString(3)+" "+rs.getString(4));
             }
 
         } catch (SQLException e) {

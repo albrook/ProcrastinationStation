@@ -1,0 +1,26 @@
+create table events (
+EventID int not null auto_increment,
+EventName varchar(255) not null,
+EventDescription varchar(255) not null,
+EventType varchar(255) not null,
+PRIMARY KEY (EventID)
+);
+
+create table birthdayEvents (
+EventID int not null,
+EventDate DATE not null,
+FOREIGN KEY (EventID) REFERENCES events(EventID)
+);
+
+create table dailyEvents (
+EventID int not null,
+EventTime TIME not null,
+FOREIGN KEY (EventID) REFERENCES events(EventID)
+);
+
+create table weeklyEvents (
+EventID int not null,
+EventDay varchar(255) not null,
+EventTime TIME not null,
+FOREIGN KEY (EventID) REFERENCES events(EventID)
+);
